@@ -1,0 +1,74 @@
+.include "constants.asm"
+.include "macros.asm"
+
+.global player_enemy_collision
+.global death
+
+.data
+	death: .word 0  # boolean for if player hit enemy
+
+.text
+
+player_enemy_collision:
+	enter
+	
+	
+	lw t0, death
+	# if (death != 1)
+	bne t0, 0, _leave_coll
+	
+	# get player inputs
+	la t0, player_inputs
+	lb t1, (t0) # x
+	lb t2, 1(t0) # y
+	
+	# get enemy 1 inputs
+	la t3, enemy_inputs_1
+	lb t4, (t3)  # x
+	lb t5, 1(t3) # y
+	
+	# check enemy 1 -----------
+	# if(player.x == enemy.x and player.y == enemy.y)
+	bne t1, t4, _check_enemy2
+	bne t2, t5, _check_enemy2
+		# dec lives
+		la t4, lives
+		lw t5, (t4)  
+		dec t5      # lives - 1
+		sw t5, (t4)
+		# death = 1
+		la t4, death
+		lw t5, (t4)
+		inc t5     # death + 1
+		sw t5, (t4)
+
+_check_enemy2:	
+	# get enemy 2 inputs
+	la t3, enemy_inputs_2
+	lb t4, (t3)  # x
+	lb t5, 1(t3) # y
+	
+	# check enemy 2 ----------
+	# if(player.x == enemy.x and player.y == enemy.y)
+	bne t1, t4, _check_enemy3
+	bne t2, t5, _check_enemy3
+		# dec lives
+		la t4, lives
+		lw t5, (t4)  
+		dec t5      # lives - 1
+		sw t5, (t4)
+		# death = 1
+		la t4, death
+		lw t5, (t4)
+		inc t5     # death + 1
+		sw t5, (t4)
+		
+_check_enemy3:
+	# check enemy 3 -------- 
+	# if(player.x == enemy.x and player.y == enemy.y)
+		# dec lives
+		# death = 1
+		
+_leave_coll:
+	
+	leave
