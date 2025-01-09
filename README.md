@@ -10,3 +10,8 @@ Key take-aways
 - Patience, lots of patience
 
 Credit to Jarrett Billingsley for the following files
+- constants.asm
+- display_2227_0611.asm
+- keyboard_controller.asm
+- keyboard_model.asm
+- macros.asm
