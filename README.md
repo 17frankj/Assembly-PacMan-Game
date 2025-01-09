@@ -8,3 +8,5 @@ Key take-aways
 - Code tidiness
 - Insane error handling of a language that gives no feedback on issues.
 - Patience, lots of patience
+
+Credit to Jarrett Billingsley for the following files
