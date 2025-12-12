@@ -11,6 +11,7 @@ Key take-aways
 
 Startup Instructions
 - Download Mars
+  - https://dpetersanderson.github.io/download.html
 - run this command to launch mars
   - java -jar Mars_2244_0105.jar
 - in tools tap:
